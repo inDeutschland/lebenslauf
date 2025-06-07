@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS-Einstellungen bearbeiten</title>
+</head>
+<body>
+    <h1>🎨 Lebenslauf-Stileinstellungen</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% for setting in settings %}
+            <h3>{{ setting.key }}</h3>
+            <textarea name="{{ setting.key }}" rows="4" cols="80">{{ setting.value }}</textarea>
+            <hr>
+        {% endfor %}
+        <button type="submit">💾 Änderungen speichern</button>
+    </form>
+</body>
+</html>
