@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask External Tools</title>
+    <style>
+        body { font-family: Arial; margin: 40px; background: #f4f4f4; }
+        input[type="text"] { padding: 8px; width: 300px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; background: white; }
+        th, td { padding: 10px; border-bottom: 1px solid #ccc; text-align: left; }
+        th { background-color: #eee; }
+        .manual { color: green; font-weight: bold; }
+        .auto { color: #999; }
+        a.button { text-decoration: none; padding: 6px 12px; background: #007BFF; color: white; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Flask External Tools</h1>
+    <form method="get" action="/tools">
+        <input type="text" name="q" value="{{ q }}" placeholder="Search tool...">
+        <input type="submit" value="Search">
+    </form>
+    <table>
+        <tr><th>Name</th><th>Type</th><th>Category</th><th>Example</th><th>Status</th><th>Actions</th></tr>
+        {% for row in tools %}
+        <tr>
+            <td>{{ row['name'] }}</td>
+            <td>{{ row['type'] }}</td>
+            <td>{{ row['category'] or 'Uncategorized' }}</td>
+            <td><pre>{{ row['example'] }}</pre></td>
+            <td class="{{ 'manual' if row['is_manual'] else 'auto' }}">{{ 'Manual' if row['is_manual'] else 'Auto' }}</td>
+            <td><a href="{{ url_for('edit_tool', id=row['id']) }}" class="button">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

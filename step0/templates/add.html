@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Example</title>
+</head>
+<body>
+    <h1>Add New Example</h1>
+    <form method="POST">
+        <label for="attribute_id">Attribute:</label>
+        <select name="attribute_id" required>
+            {% for attr in attributes %}
+                <option value="{{ attr.id }}">{{ attr.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="example">Example:</label><br>
+        <textarea name="example" rows="5" cols="60" required></textarea><br><br>
+        <input type="submit" value="Add Example">
+    </form>
+    <p><a href="{{ url_for('index') }}">Back to Home</a></p>
+</body>
+</html>

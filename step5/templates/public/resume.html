@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Lebenslauf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h2 {
+            border-bottom: 1px solid #ccc;
+            margin-top: 40px;
+            color: #333;
+        }
+        .section-content {
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📄 Mein Lebenslauf</h1>
+
+    {% for section in sections %}
+        <h2>{{ section.title }}</h2>
+        <div class="section-content">{{ section.content }}</div>
+    {% endfor %}
+</body>
+</html>

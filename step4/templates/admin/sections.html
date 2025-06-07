@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Abschnitte verwalten</title>
+</head>
+<body>
+    <h1>📝 Lebenslauf-Abschnitte bearbeiten</h1>
+    <form method="POST">
+        {% for section in sections %}
+            <h3>{{ section.title }}</h3>
+            <textarea name="{{ section.id }}" rows="4" cols="80">{{ section.content }}</textarea>
+            <hr>
+        {% endfor %}
+        <button type="submit">💾 Änderungen speichern</button>
+    </form>
+</body>
+</html>

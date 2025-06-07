@@ -1,0 +1,7 @@
+# step 1: Install Flask
+flask
+# step 2:
+# step 3: Install Flask-SQLAlchemy
+flask-sqlalchemy
+
+
