@@ -1,51 +1,52 @@
-# ✅ Step 12 – توحيد تصميم الصفحات باستخدام Base Template
 
-في هذه الخطوة، قمنا بتنفيذ تصميم موحد لجميع صفحات المشروع من خلال إنشاء:
+# ✅ Step 12 – Unifying Page Design Using a Base Template
 
----
-
-## 📁 الملفات المضافة:
-
-- `base.html.j2`: القالب الأساسي لجميع الصفحات.
-- `partials/navbar.html.j2`: شريط أدوات علوي موحد.
-- `partials/footer.html.j2`: تذييل سفلي موحد.
+In this step, we implemented a unified design across all project pages by creating:
 
 ---
 
-## 🧩 الميزات التي تم تنفيذها:
+## 📁 Added Files:
 
-| الميزة | الحالة |
-|--------|--------|
-| شريط أدوات (Navbar) موحد | ✅ |
-| تذييل (Footer) موحد | ✅ |
-| اعتماد الامتداد `.j2` لجميع القوالب | ✅ |
-| تعديل `home.html.j2` ليرث من `base.html.j2` | ✅ |
-| إصلاح مشاكل `TemplateNotFound` | ✅ |
+- `base.html.j2`: The main base template for all pages.
+- `partials/navbar.html.j2`: A unified top navigation bar.
+- `partials/footer.html.j2`: A unified footer.
 
 ---
 
-## 🚀 طريقة تشغيل السيرفر (موصى بها):
+## 🧩 Implemented Features:
+
+| Feature                     | Status |
+|----------------------------|--------|
+| Unified Navbar             | ✅     |
+| Unified Footer             | ✅     |
+| `.j2` extension for templates | ✅     |
+| `home.html.j2` inherits from `base.html.j2` | ✅ |
+| Fixed `TemplateNotFound` errors | ✅ |
+
+---
+
+## 🚀 Recommended Way to Run the Server:
 
 ```bash
-# من مجلد المشروع الجذري:
+# From the project root directory:
 python -m step12.run
 ```
 
-> تأكد أن `run.py` يحتوي على:
+> Make sure `run.py` contains:
 ```python
 from step12 import create_app
 ```
 
 ---
 
-## ⚠️ ملاحظة مهمة:
+## ⚠️ Important Note:
 
-إذا ظهرت رسالة:
+If you see the message:
 ```
 sqlalchemy.exc.OperationalError: no such table: section
 ```
 
-📌 هذا يعني أن الجداول غير منشأة بعد.  
-في الخطوة القادمة `step13`، سيتم تنفيذ إنشاء تلقائي للجداول داخل `create_app()`.
+📌 It means the database tables have not been created yet.  
+In the next step `step13`, automatic table creation will be implemented inside `create_app()`.
 
 ---
