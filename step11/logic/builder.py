@@ -1,5 +1,5 @@
 import json
-from models.models import Setting
+from ..models.models import Setting
 
 def get_css_setting(key, default=""):
     setting = Setting.query.filter_by(key=key).first()

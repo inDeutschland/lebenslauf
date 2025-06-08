@@ -1,12 +1,23 @@
-<!-- templates/home.html -->
-
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ get_locale() }}">
 <head>
     <meta charset="UTF-8">
-    <title>Lebenslauf Projekt</title>
+    <title>{{ _('Resume Project') }}</title>
 </head>
 <body>
-    <h1>✅ Lebenslauf Projekt gestartet erfolgreich!</h1>
+    <h1>✅ {{ _('Resume Project gestartet erfolgreich!') }}</h1>
+    <p>{{ _('Welcome to your multilingual resume application.') }}</p>
+
+    <p>🌐 Detected locale: {{ get_locale() }}</p>
+    <p>🔁 Translated: {{ _('Select language:') }}</p>
+
+    <hr>
+
+    <p>{{ _('Select language:') }}</p>
+    <ul>
+        <li><a href="{{ url_for('main.home') }}?lang=de">🇩🇪 Deutsch</a></li>
+        <li><a href="{{ url_for('main.home') }}?lang=en">🇬🇧 English</a></li>
+        <li><a href="{{ url_for('main.home') }}?lang=ar">🇸🇦 العربية</a></li>
+    </ul>
 </body>
 </html>

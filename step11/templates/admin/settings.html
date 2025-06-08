@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSS-Einstellungen bearbeiten</title>
+    <title>{{ _('Edit CSS Settings') }}</title>
 </head>
 <body>
-    <h1>🎨 Lebenslauf-Stileinstellungen</h1>
+    <h1>🎨 {{ _('Resume Style Settings') }}</h1>
 
     {% if error %}
         <p style="color: red;">{{ error }}</p>
@@ -14,69 +14,67 @@
     <form method="POST">
 
         <hr>
-<h2>🔍 Live-Vorschau</h2>
+        <h2>🔍 {{ _('Live Preview') }}</h2>
 
-<div id="preview-box" style="padding: 20px; border: 1px dashed #aaa;">
-    <h2 id="preview-title">Beispiel-Titel</h2>
-    <p id="preview-paragraph">Dies ist ein Beispielabschnitt mit Beispielinhalt für die Vorschau.</p>
-</div>
+        <div id="preview-box" style="padding: 20px; border: 1px dashed #aaa;">
+            <h2 id="preview-title">{{ _('Example Title') }}</h2>
+            <p id="preview-paragraph">{{ _('This is a sample section with example content.') }}</p>
+        </div>
 
-    <!-- section_title_css -->
-    <h3>section_title_css</h3>
+        <!-- section_title_css -->
+        <h3>{{ _('section_title_css') }}</h3>
 
-    <label>📏 Font Size:</label>
-    <select name="section_title_css_font_size">
-        {% for size in ["16px", "18px", "20px", "22px", "24px"] %}
-            <option value="{{ size }}" {% if section_title_css_data["font-size"] == size %}selected{% endif %}>{{ size }}</option>
+        <label>📏 {{ _('Font Size') }}:</label>
+        <select name="section_title_css_font_size">
+            {% for size in ["16px", "18px", "20px", "22px", "24px"] %}
+                <option value="{{ size }}" {% if section_title_css_data["font-size"] == size %}selected{% endif %}>{{ size }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label>🎨 {{ _('Color') }}:</label>
+        <input type="color" name="section_title_css_color" value="{{ section_title_css_data['color'] }}">
+
+        <br><br>
+
+        <label>🔠 {{ _('Font Weight') }}:</label>
+        <select name="section_title_css_weight">
+            {% for w in ["normal", "bold", "lighter"] %}
+                <option value="{{ w }}" {% if section_title_css_data["font-weight"] == w %}selected{% endif %}>{{ w.capitalize() }}</option>
+            {% endfor %}
+        </select>
+
+        <hr>
+
+        <!-- paragraph_css -->
+        <h3>{{ _('paragraph_css') }}</h3>
+
+        <label>📏 {{ _('Font Size') }}:</label>
+        <select name="paragraph_css_font_size">
+            {% for size in ["12px", "14px", "16px", "18px", "20px"] %}
+                <option value="{{ size }}" {% if paragraph_css_data["font-size"] == size %}selected{% endif %}>{{ size }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label>🎨 {{ _('Color') }}:</label>
+        <input type="color" name="paragraph_css_color" value="{{ paragraph_css_data['color'] }}">
+
+        <hr>
+
+        <!-- Other settings -->
+        {% for setting in settings %}
+            {% if setting.key != "section_title_css" and setting.key != "paragraph_css" %}
+                <h3>{{ _(setting.key) }}</h3>
+                <textarea name="{{ setting.key }}" rows="4" cols="80">{{ setting.value }}</textarea>
+                <hr>
+            {% endif %}
         {% endfor %}
-    </select>
 
-    <br><br>
-
-    <label>🎨 Color:</label>
-    <input type="color" name="section_title_css_color" value="{{ section_title_css_data['color'] }}">
-
-    <br><br>
-
-    <label>🔠 Font Weight:</label>
-    <select name="section_title_css_weight">
-        {% for w in ["normal", "bold", "lighter"] %}
-            <option value="{{ w }}" {% if section_title_css_data["font-weight"] == w %}selected{% endif %}>{{ w.capitalize() }}</option>
-        {% endfor %}
-    </select>
-
-    <hr>
-
-    <!-- paragraph_css -->
-    <h3>paragraph_css</h3>
-
-    <label>📏 Font Size:</label>
-    <select name="paragraph_css_font_size">
-        {% for size in ["12px", "14px", "16px", "18px", "20px"] %}
-            <option value="{{ size }}" {% if paragraph_css_data["font-size"] == size %}selected{% endif %}>{{ size }}</option>
-        {% endfor %}
-    </select>
-
-    <br><br>
-
-    <label>🎨 Color:</label>
-    <input type="color" name="paragraph_css_color" value="{{ paragraph_css_data['color'] }}">
-
-    <hr>
-
-    <!-- باقي الإعدادات -->
-    {% for setting in settings %}
-        {% if setting.key != "section_title_css" and setting.key != "paragraph_css" %}
-            <h3>{{ setting.key }}</h3>
-            <textarea name="{{ setting.key }}" rows="4" cols="80">{{ setting.value }}</textarea>
-            <hr>
-        {% endif %}
-    {% endfor %}
-
-
-    <button type="submit" name="action" value="save">💾 Änderungen speichern</button>
-    <button type="submit" name="action" value="save_and_preview">💾 Speichern + Vorschau anzeigen</button>
-
+        <button type="submit" name="action" value="save">💾 {{ _('Save Changes') }}</button>
+        <button type="submit" name="action" value="save_and_preview">💾 {{ _('Save & Show Preview') }}</button>
 
     </form>
 

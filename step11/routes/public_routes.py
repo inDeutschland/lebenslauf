@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
-from models.models import Section
-from logic.builder import get_css_setting
+from ..models.models import Section
+from ..logic.builder import get_css_setting
 
 public_bp = Blueprint("public", __name__)
 
