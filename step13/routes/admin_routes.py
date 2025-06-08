@@ -14,7 +14,7 @@ def manage_sections():
         return redirect(url_for("admin.manage_sections"))
 
     sections = Section.query.all()
-    return render_template("admin/sections.html", sections=sections)
+    return render_template("admin/sections.html.j2", sections=sections)
 
 
 
@@ -116,7 +116,7 @@ def manage_settings():
             body_font_value = s.value
 
     return render_template(
-        "admin/settings.html",
+        "admin/settings.html.j2",
         settings=settings,
         error=error,
         section_title_css_data=section_title_css_data,

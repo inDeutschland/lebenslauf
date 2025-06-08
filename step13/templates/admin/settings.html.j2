@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ _('Edit CSS Settings') }}</title>
-</head>
-<body>
+{% extends "base.html.j2" %}
+
+{% block title %}{{ _('Edit CSS Settings') }}{% endblock %}
+
+{% block content %}
     <h1>🎨 {{ _('Resume Style Settings') }}</h1>
 
     {% if error %}
@@ -112,5 +110,4 @@
         updatePreview();
     });
     </script>
-</body>
-</html>
+{% endblock %}

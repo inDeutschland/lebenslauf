@@ -1,5 +1,5 @@
 from flask import Flask
-from .models.models import db
+from .models.models import db, Section
 from .routes.admin_routes import admin_bp
 from .routes.public_routes import public_bp
 from .routes.main_routes import main_bp
@@ -11,8 +11,8 @@ from flask_babel import _
 
 
 def create_app():
-    app = Flask(__name__)
-    app.config.from_object("step11.config.settings.Config")
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_object("step13.config.settings.Config")
     app.config['LANGUAGES'] = ['de', 'en', 'ar']
     app.debug = True
 
@@ -20,9 +20,12 @@ def create_app():
     logging.basicConfig(level=logging.DEBUG)
     app.logger.setLevel(logging.DEBUG)
 
+    # تأكد من وجود مجلد instance
+    os.makedirs(app.instance_path, exist_ok=True)
+
+    # تهيئة قواعد البيانات والإضافات
     db.init_app(app)
 
-    # ✅ التهيئة اليدوية للمسار
     translations_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'translations'))
     app.config['BABEL_TRANSLATION_DIRECTORIES'] = translations_path
     babel.init_app(app)
@@ -33,9 +36,31 @@ def create_app():
 
     init_i18n(app)
 
+    # ✅ إنشاء قاعدة البيانات تلقائيًا
+    with app.app_context():
+        db_path = os.path.join(app.instance_path, 'lebenslauf.db')
+        if not os.path.exists(db_path):
+            db.create_all()
+            insert_initial_sections()
+
     @app.before_request
     def log_locale_info():
         print("🌐 Requested locale:", get_locale())
         print("📦 Babel directory:", app.config.get('BABEL_TRANSLATION_DIRECTORIES'))
 
     return app
+
+
+def insert_initial_sections():
+    """إدخال الأقسام الأساسية تلقائيًا"""
+    default_sections = [
+        "Summary", "Career Objective", "Experience", "Qualifications",
+        "Skills", "Languages", "Projects", "Links", "Interests"
+    ]
+    for idx, title in enumerate(default_sections, start=1):
+        print(f"➕ Adding section: {title}")
+        section = Section(order=idx, title=title, content="")
+        db.session.add(section)
+    db.session.commit()
+    print("✅ Sections inserted.")
+
