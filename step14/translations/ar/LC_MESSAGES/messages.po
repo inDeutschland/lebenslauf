@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Language: de\n"
+"Language: ar\n"
 
 # Translations template for PROJECT.
 # Copyright (C) 2025 ORGANIZATION
@@ -13,7 +13,7 @@ msgstr ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-08 20:45+0200\n"
+"POT-Creation-Date: 2025-06-08 02:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,75 +26,75 @@ msgstr ""
 #: M:/lebenslauf/step11/templates/home.html:12
 #: M:/lebenslauf/step11/templates/home.html:16
 msgid "Select language:"
-msgstr "Sprache auswählen:"
+msgstr "حدد اللغة:"
 
 #: M:/lebenslauf/step11/templates/home.html:5
 msgid "Resume Project"
-msgstr "Projekt wieder aufnehmen"
+msgstr "استئناف المشروع"
 
 #: M:/lebenslauf/step11/templates/home.html:8
 msgid "Resume Project gestartet erfolgreich!"
-msgstr "Lebenslauf Projekt Gestartett Erfolgreich!"
+msgstr "استئناف مشروع الجستارت erfolgreich!"
 
 #: M:/lebenslauf/step11/templates/home.html:9
 msgid "Welcome to your multilingual resume application."
-msgstr "Willkommen bei Ihrer mehrsprachigen Lebenslaufanwendung."
+msgstr "مرحبًا بك في تطبيق السيرة الذاتية متعددة اللغات."
 
 #: M:/lebenslauf/step11/templates/admin/sections.html:5
 msgid "Manage Sections"
-msgstr "Abschnitte verwalten"
+msgstr "إدارة الأقسام"
 
 #: M:/lebenslauf/step11/templates/admin/sections.html:8
 msgid "Edit Resume Sections"
-msgstr "Lebenslaufabschnitte bearbeiten"
+msgstr "تحرير الأقسام السيرة الذاتية"
 
 #: M:/lebenslauf/step11/templates/admin/sections.html:15
 #: M:/lebenslauf/step11/templates/admin/settings.html:76
 msgid "Save Changes"
-msgstr "Änderungen speichern"
+msgstr "حفظ التغييرات"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:5
 msgid "Edit CSS Settings"
-msgstr "Bearbeiten Sie die CSS -Einstellungen"
+msgstr "تحرير إعدادات CSS"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:8
 msgid "Resume Style Settings"
-msgstr "Lebenslauf -Stileinstellungen"
+msgstr "استئناف إعدادات النمط"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:17
 msgid "Live Preview"
-msgstr "Live -Vorschau"
+msgstr "معاينة حية"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:20
 msgid "Example Title"
-msgstr "Beispieltitel"
+msgstr "مثال العنوان"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:21
 msgid "This is a sample section with example content."
-msgstr "Dies ist ein Beispielabschnitt mit Beispielinhalt."
+msgstr "هذا قسم عينة مع مثال محتوى."
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:25
 msgid "section_title_css"
-msgstr "Abschnitt_title_css"
+msgstr "section_title_css"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:27
 #: M:/lebenslauf/step11/templates/admin/settings.html:53
 msgid "Font Size"
-msgstr "Schriftgröße"
+msgstr "حجم الخط"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:36
 #: M:/lebenslauf/step11/templates/admin/settings.html:62
 msgid "Color"
-msgstr "Farbe"
+msgstr "لون"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:41
 msgid "Font Weight"
-msgstr "Schriftgewicht"
+msgstr "وزن الخط"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:51
 msgid "paragraph_css"
-msgstr "Abschnitt_CSS"
+msgstr "الفقرة"
 
 #: M:/lebenslauf/step11/templates/admin/settings.html:77
 msgid "Save & Show Preview"
-msgstr "Vorschau speichern und anzeigen"
+msgstr "معاينة حفظ وإظهار"
